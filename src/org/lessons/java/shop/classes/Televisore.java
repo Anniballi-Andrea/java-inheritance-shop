@@ -1,0 +1,50 @@
+package org.lessons.java.shop.classes;
+
+import java.math.BigDecimal;
+
+public class Televisore extends Prodotto {
+    protected int dimensions;
+    protected Boolean isSmart;
+
+    public Televisore(String name, String marca, BigDecimal price, BigDecimal iva, int dimensions, Boolean isSmart) {
+        super(name, marca, price, iva);
+        this.dimensions = dimensions;
+        this.isSmart = isSmart;
+    }
+
+    public int getDimensions() {
+        return this.dimensions;
+    }
+
+    public void setDimensions(int dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public Boolean getIsSmart() {
+        return this.isSmart;
+    }
+
+    public void isSmartTv() {
+        this.isSmart = true;
+    }
+
+    public void notSmartTv() {
+        this.isSmart = false;
+    }
+
+    public void getInfo() {
+        String smartInfo;
+        if (this.isSmart) {
+            smartInfo = "la tv è smart";
+        } else {
+            smartInfo = "la tv non è smart";
+        }
+
+        BigDecimal ivaForPrint = this.iva.multiply(BigDecimal.valueOf(100));
+
+        System.out.println("prodotto: " +
+                this.codice + "-" + this.name + ", marca: " + this.marca + ", prezzo: " + this.price + " euro, iva: "
+                + ivaForPrint + " %, dimensioni: "
+                + this.dimensions + " pollici, " + smartInfo);
+    }
+}
