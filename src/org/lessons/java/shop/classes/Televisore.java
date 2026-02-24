@@ -50,6 +50,21 @@ public class Televisore extends Prodotto {
     }
 
     @Override
+    public BigDecimal getPrice(Boolean haveCard) {
+        if (haveCard) {
+            if (!this.isSmart) {
+                return this.price
+                        .subtract(this.price.multiply(new BigDecimal(0.10)).setScale(2, RoundingMode.HALF_DOWN));
+            }
+
+            return this.price.subtract(this.price.multiply(new BigDecimal(0.02)).setScale(2, RoundingMode.HALF_DOWN));
+        } else {
+            return this.price;
+        }
+
+    }
+
+    @Override
     public String toString() {
         String smartInfo;
         if (this.isSmart) {

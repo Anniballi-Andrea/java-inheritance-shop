@@ -42,6 +42,14 @@ public class Carrello {
             }
             Televisore tv = new Televisore(name, marca, price, iva, dimensions, smartState);
             System.out.println(tv.toString());
+            if (cardState) {
+                System.out.println(
+                        "con la carta fedeltà hai diritto ad uno sconto, prezzo finale: " + tv.getPrice(cardState)
+                                + " euro");
+            } else {
+                System.out.println(
+                        "il prezzo del prodotto è: " + tv.getPrice(cardState) + " euro");
+            }
 
         } else if (typeOfProduct.toLowerCase().equals("smartphone")) {
             System.out.println("come si chiama?");
@@ -90,6 +98,14 @@ public class Carrello {
 
             Cuffie cuffie = new Cuffie(name, marca, price, iva, color, wirlessState);
             System.out.println(cuffie.toString());
+            if (cardState) {
+                System.out.println(
+                        "con la carta fedeltà hai diritto ad uno sconto, prezzo finale: " + cuffie.getPrice(cardState)
+                                + " euro");
+            } else {
+                System.out.println(
+                        "il prezzo del prodotto è: " + cuffie.getPrice(cardState) + " euro");
+            }
         } else {
             System.out.println("il prodotto non è stato trovato");
         }

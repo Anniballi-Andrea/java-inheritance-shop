@@ -50,6 +50,21 @@ public class Cuffie extends Prodotto {
     }
 
     @Override
+    public BigDecimal getPrice(Boolean haveCard) {
+        if (haveCard) {
+            if (!this.isWirless) {
+                return this.price
+                        .subtract(this.price.multiply(new BigDecimal(0.07)).setScale(2, RoundingMode.HALF_DOWN));
+            }
+
+            return this.price.subtract(this.price.multiply(new BigDecimal(0.02)).setScale(2, RoundingMode.HALF_DOWN));
+        } else {
+            return this.price;
+        }
+
+    }
+
+    @Override
     public String toString() {
         String wirlessInfo;
         if (this.isWirless) {
