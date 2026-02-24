@@ -1,5 +1,4 @@
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Scanner;
 
 import org.lessons.java.shop.classes.Cuffie;
@@ -9,7 +8,14 @@ import org.lessons.java.shop.classes.Televisore;
 public class Carrello {
 
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
+        System.out.println("hai una tessera fedeltà?");
+        String haveCard = input.nextLine();
+        Boolean cardState = false;
+        if (haveCard.toLowerCase().equals("si")) {
+            cardState = true;
+        }
 
         System.out.println("Stai aggiungendo uno smartphone, un televisore o delle cuffie?");
         String typeOfProduct = input.nextLine();
@@ -51,6 +57,14 @@ public class Carrello {
 
             Smartphone tel = new Smartphone(name, marca, price, iva, memory);
             System.out.println(tel.toString());
+            if (cardState) {
+                System.out.println(
+                        "con la carta fedeltà hai diritto ad uno sconto, prezzo finale: " + tel.getPrice(cardState)
+                                + " euro");
+            } else {
+                System.out.println(
+                        "il prezzo del prodotto è: " + tel.getPrice(cardState) + " euro");
+            }
 
         } else if (typeOfProduct.toLowerCase().equals("cuffie")) {
             System.out.println("sono Cuffie");

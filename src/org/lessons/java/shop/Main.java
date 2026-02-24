@@ -11,7 +11,7 @@ public class Main {
         public static void main(String[] args) {
 
                 Smartphone telefono = new Smartphone("i-phone", "apple",
-                                new BigDecimal(800.99).setScale(2, RoundingMode.CEILING),
+                                new BigDecimal(800.00).setScale(2, RoundingMode.CEILING),
                                 new BigDecimal(0.22).setScale(2, RoundingMode.HALF_DOWN), 512);
                 Televisore tv = new Televisore("Samsung-lcd", "Samsung",
                                 new BigDecimal(726.24).setScale(2, RoundingMode.CEILING),
@@ -27,6 +27,7 @@ public class Main {
                 System.out.println(" ");
                 cuffie.getInfo();
                 System.out.println(" ");
+                System.out.println(telefono.getPrice(true));
 
         }
 

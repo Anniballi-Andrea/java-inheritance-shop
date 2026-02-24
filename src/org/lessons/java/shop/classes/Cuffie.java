@@ -60,6 +60,6 @@ public class Cuffie extends Prodotto {
         return String.format(
                 "Prodotto: %d - %s, marca: %s, colore: %s, prezzo: %s euro, %s",
                 this.codice, this.name,
-                this.marca, this.color, this.price.setScale(2, RoundingMode.HALF_DOWN), wirlessInfo);
+                this.marca, this.color, this.price, wirlessInfo);
     }
 }

@@ -60,6 +60,6 @@ public class Televisore extends Prodotto {
         return String.format(
                 "Prodotto: %d - %s, marca: %s, prezzo: %s euro, dimensioni: %d pollici, %s",
                 this.codice, this.name,
-                this.marca, this.price.setScale(2, RoundingMode.HALF_DOWN), this.dimensions, smartInfo);
+                this.marca, this.price, this.dimensions, smartInfo);
     }
 }

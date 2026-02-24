@@ -39,10 +39,25 @@ public class Smartphone extends Prodotto {
     }
 
     @Override
+    public BigDecimal getPrice(Boolean haveCard) {
+        if (haveCard) {
+            if (this.memory <= 32) {
+                return this.price
+                        .subtract(this.price.multiply(new BigDecimal(0.05)).setScale(2, RoundingMode.HALF_DOWN));
+            }
+
+            return this.price.subtract(this.price.multiply(new BigDecimal(0.02)).setScale(2, RoundingMode.HALF_DOWN));
+        } else {
+            return this.price;
+        }
+
+    }
+
+    @Override
     public String toString() {
         return String.format(
                 "Prodotto: %d - %s, marca: %s, prezzo: %s euro, memoria: %d GB",
                 this.codice, this.name,
-                this.marca, this.price.setScale(2, RoundingMode.HALF_DOWN), this.memory);
+                this.marca, this.price, this.memory);
     }
 }
