@@ -1,6 +1,7 @@
 package org.lessons.java.shop.classes;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 public class Smartphone extends Prodotto {
@@ -35,5 +36,13 @@ public class Smartphone extends Prodotto {
                 this.codice + "-" + this.name + ", marca: " + this.marca + ", prezzo: " + this.price + " euro, iva: "
                 + ivaForPrint + " %, codice imei: "
                 + this.imei + ", memoria: " + this.memory + " GB");
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Prodotto: %d - %s, marca: %s, prezzo: %s euro, memoria: %d GB",
+                this.codice, this.name,
+                this.marca, this.price.setScale(2, RoundingMode.HALF_DOWN), this.memory);
     }
 }

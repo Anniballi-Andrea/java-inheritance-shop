@@ -69,4 +69,10 @@ public class Prodotto {
             System.out.println("inserisci l'iva nel formato 0,iva");
         }
     }
+
+    @Override
+    public String toString() {
+        return String.format("Prodotto: ''%d'' - ''%s'', marca: ''%d'', prezzo: ''%f''", this.codice, this.name,
+                this.marca, this.price);
+    }
 }

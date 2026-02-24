@@ -1,6 +1,7 @@
 package org.lessons.java.shop.classes;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Cuffie extends Prodotto {
     protected String color;
@@ -46,5 +47,19 @@ public class Cuffie extends Prodotto {
                 this.codice + "-" + this.name + ", marca: " + this.marca + ", prezzo: " + this.price + " euro, iva: "
                 + ivaForPrint + " %, colore: "
                 + this.color + ", " + wirlessInfo);
+    }
+
+    @Override
+    public String toString() {
+        String wirlessInfo;
+        if (this.isWirless) {
+            wirlessInfo = "sono wirless";
+        } else {
+            wirlessInfo = "non sono wirless";
+        }
+        return String.format(
+                "Prodotto: %d - %s, marca: %s, colore: %s, prezzo: %s euro, %s",
+                this.codice, this.name,
+                this.marca, this.color, this.price.setScale(2, RoundingMode.HALF_DOWN), wirlessInfo);
     }
 }

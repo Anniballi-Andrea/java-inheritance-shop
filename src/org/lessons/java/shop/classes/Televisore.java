@@ -1,6 +1,7 @@
 package org.lessons.java.shop.classes;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Televisore extends Prodotto {
     protected int dimensions;
@@ -46,5 +47,19 @@ public class Televisore extends Prodotto {
                 this.codice + "-" + this.name + ", marca: " + this.marca + ", prezzo: " + this.price + " euro, iva: "
                 + ivaForPrint + " %, dimensioni: "
                 + this.dimensions + " pollici, " + smartInfo);
+    }
+
+    @Override
+    public String toString() {
+        String smartInfo;
+        if (this.isSmart) {
+            smartInfo = "la tv è smart";
+        } else {
+            smartInfo = "la tv non è smart";
+        }
+        return String.format(
+                "Prodotto: %d - %s, marca: %s, prezzo: %s euro, dimensioni: %d pollici, %s",
+                this.codice, this.name,
+                this.marca, this.price.setScale(2, RoundingMode.HALF_DOWN), this.dimensions, smartInfo);
     }
 }
