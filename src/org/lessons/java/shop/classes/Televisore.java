@@ -66,15 +66,19 @@ public class Televisore extends Prodotto {
 
     @Override
     public String toString() {
-        String smartInfo;
-        if (this.isSmart) {
-            smartInfo = "la tv è smart";
-        } else {
-            smartInfo = "la tv non è smart";
-        }
-        return String.format(
-                "Prodotto: %d - %s, marca: %s, prezzo: %s euro, dimensioni: %d pollici, %s",
-                this.codice, this.name,
-                this.marca, this.price, this.dimensions, smartInfo);
+
+        return super.toString() + "\nDimensioni Tv : " + getDimensions() + "\nSmart : " + getIsSmart();
+        /*
+         * String smartInfo;
+         * if (this.isSmart) {
+         * smartInfo = "la tv è smart";
+         * } else {
+         * smartInfo = "la tv non è smart";
+         * }
+         * return String.format(
+         * "Prodotto: %d - %s, marca: %s, prezzo: %s euro, dimensioni: %d pollici, %s",
+         * this.codice, this.name,
+         * this.marca, this.price, this.dimensions, smartInfo);
+         */
     }
 }

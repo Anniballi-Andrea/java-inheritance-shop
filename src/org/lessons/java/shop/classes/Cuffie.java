@@ -66,15 +66,19 @@ public class Cuffie extends Prodotto {
 
     @Override
     public String toString() {
-        String wirlessInfo;
-        if (this.isWirless) {
-            wirlessInfo = "sono wirless";
-        } else {
-            wirlessInfo = "non sono wirless";
-        }
-        return String.format(
-                "Prodotto: %d - %s, marca: %s, colore: %s, prezzo: %s euro, %s",
-                this.codice, this.name,
-                this.marca, this.color, this.price, wirlessInfo);
+
+        return super.toString() + "\nColore : " + getColor() + "\nWirless : " + getIsWirless();
+        /*
+         * String wirlessInfo;
+         * if (this.isWirless) {
+         * wirlessInfo = "sono wirless";
+         * } else {
+         * wirlessInfo = "non sono wirless";
+         * }
+         * return String.format(
+         * "Prodotto: %d - %s, marca: %s, colore: %s, prezzo: %s euro, %s",
+         * this.codice, this.name,
+         * this.marca, this.color, this.price, wirlessInfo);
+         */
     }
 }

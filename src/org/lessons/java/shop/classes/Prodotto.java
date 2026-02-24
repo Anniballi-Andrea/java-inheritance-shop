@@ -79,7 +79,15 @@ public class Prodotto {
 
     @Override
     public String toString() {
-        return String.format("Prodotto: ''%d'' - ''%s'', marca: ''%d'', prezzo: ''%f''", this.codice, this.name,
-                this.marca, this.price);
+        if (name != null) {
+            return codice + "-" + name;
+        }
+        return null;
+        /*
+         * return
+         * String.format("Prodotto: ''%d'' - ''%s'', marca: ''%d'', prezzo: ''%f''",
+         * this.codice, this.name,
+         * this.marca, this.price);
+         */
     }
 }

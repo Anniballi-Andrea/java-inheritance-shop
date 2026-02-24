@@ -55,9 +55,13 @@ public class Smartphone extends Prodotto {
 
     @Override
     public String toString() {
-        return String.format(
-                "Prodotto: %d - %s, marca: %s, prezzo: %s euro, memoria: %d GB",
-                this.codice, this.name,
-                this.marca, this.price, this.memory);
+        return super.toString() + "\nCodice IMEI : " + getImei() + "\n Giga : " + getMemory();
+
+        /*
+         * return String.format(
+         * "Prodotto: %d - %s, marca: %s, prezzo: %s euro, memoria: %d GB",
+         * this.codice, this.name,
+         * this.marca, this.price, this.memory);
+         */
     }
 }
